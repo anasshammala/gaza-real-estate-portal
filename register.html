@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة غزة للعقارات - إنشاء حساب</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body>
+
+<div class="auth-page">
+  <div class="container">
+    <div class="auth-card">
+      <div class="row g-0">
+        <!-- Image Side -->
+        <div class="col-lg-5 d-none d-lg-block">
+          <div class="auth-image">
+            <div class="auth-image-content text-start">
+              <h3 class="fw-bold mb-2">ابحث عن منزل أحلامك!</h3>
+              <p class="mb-0 text-white-50">أنشئ حساباً لحفظ العقارات، والتواصل مع الملاك، وعرض عقارك بسهولة ويسر.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Form Side -->
+        <div class="col-lg-7">
+          <div class="auth-form-container">
+            <div class="auth-header">
+              <a href="index.html" class="text-decoration-none">
+                <div class="brand-icon"><i class="bi bi-person-plus text-white fs-3"></i></div>
+                <h2>إنشاء حساب جديد</h2>
+              </a>
+              <p>انضم إلينا الآن للوصول إلى كافة ميزات المنصة</p>
+            </div>
+            
+            <form action="dashboard/user-index.html" method="get">
+              <div class="row g-3">
+                <div class="col-md-6 form-group-custom mb-0">
+                  <label class="form-label-custom">الاسم الأول</label>
+                  <input type="text" class="form-control-custom" placeholder="الاسم الأول" required>
+                </div>
+                <div class="col-md-6 form-group-custom mb-0">
+                  <label class="form-label-custom">اسم العائلة</label>
+                  <input type="text" class="form-control-custom" placeholder="اسم العائلة" required>
+                </div>
+                <div class="col-md-6 form-group-custom mb-0">
+                  <label class="form-label-custom">البريد الإلكتروني</label>
+                  <input type="email" class="form-control-custom" placeholder="أدخل بريدك الإلكتروني" required>
+                </div>
+                <div class="col-md-6 form-group-custom mb-0">
+                  <label class="form-label-custom">رقم الهاتف</label>
+                  <input type="tel" class="form-control-custom" placeholder="مثال: 0590000000" required>
+                </div>
+                <div class="col-md-6 form-group-custom mb-0">
+                  <label class="form-label-custom">كلمة المرور</label>
+                  <input type="password" class="form-control-custom" placeholder="أدخل كلمة المرور" required>
+                </div>
+                <div class="col-md-6 form-group-custom mb-0">
+                  <label class="form-label-custom">تأكيد كلمة المرور</label>
+                  <input type="password" class="form-control-custom" placeholder="أعد إدخال كلمة المرور" required>
+                </div>
+                
+                <div class="col-12 mt-3">
+                  <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" id="terms" required>
+                    <label class="form-check-label terms-label" for="terms">
+                      أوافق على <a href="#" class="text-primary-custom fw-bold">الشروط والأحكام</a> و <a href="#" class="text-primary-custom fw-bold">سياسة الخصوصية</a>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <button type="submit" class="btn-accent w-100 justify-content-center btn-auth-submit">
+                    إنشاء حساب <i class="bi bi-person-check"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+            
+            <div class="divider">أو التسجيل بواسطة</div>
+            
+            <div class="social-login">
+              <button class="btn-social">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" width="18">
+                جوجل
+              </button>
+              <button class="btn-social">
+                <i class="bi bi-facebook facebook-icon"></i>
+                فيسبوك
+              </button>
+            </div>
+            
+            <p class="text-center mt-4 mb-0 auth-footer-text">
+              لديك حساب بالفعل؟ <a href="login.html" class="text-primary-custom fw-bold">تسجيل الدخول</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
