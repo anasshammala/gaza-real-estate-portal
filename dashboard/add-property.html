@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة غزة للعقارات - إضافة عقار</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-light">
+
+<div class="dashboard-layout">
+  
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon"><i class="bi bi-buildings"></i></div>
+      <div class="logo-text">
+        بوابة غزة
+        <small>للعقارات</small>
+      </div>
+    </div>
+    
+    <div class="sidebar-nav">
+      <div class="nav-section-title">القائمة الرئيسية</div>
+      <a href="user-index.html" class="sidebar-link">
+        <i class="bi bi-grid-1x2"></i> لوحة التحكم
+      </a>
+      <a href="add-property.html" class="sidebar-link active">
+        <i class="bi bi-plus-square"></i> إضافة عقار
+      </a>
+      
+      <div class="nav-section-title mt-3">الإعدادات</div>
+      <a href="#" class="sidebar-link">
+        <i class="bi bi-person"></i> الملف الشخصي
+      </a>
+    </div>
+    
+    <div class="sidebar-footer">
+      <div class="sidebar-user mb-3">
+        <img src="https://ui-avatars.com/api/?name=Ahmed+Ali&background=F5A623&color=fff" alt="User" class="rounded-circle border border-warning" width="38" height="38">
+        <div class="user-info">
+          <div>أحمد علي</div>
+          <small class="text-white-50">صاحب عقار</small>
+        </div>
+      </div>
+      <a href="../login.html" class="sidebar-link text-danger bg-danger bg-opacity-10 m-0">
+        <i class="bi bi-box-arrow-right"></i> تسجيل الخروج
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dashboard-content">
+    <button id="sidebarToggleBtn" class="btn d-lg-none mb-3">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+    
+    <div class="dashboard-header">
+      <div>
+        <h1>إضافة عقار جديد</h1>
+        <p>قم بتعبئة تفاصيل العقار لنشره على المنصة. سيتم مراجعة طلبك من قبل الإدارة.</p>
+      </div>
+    </div>
+
+    <div class="card-custom p-4">
+      <form id="addPropertyForm" action="user-index.html" method="get">
+        
+        <h5 class="mb-4 text-primary-custom fw-bolder border-bottom border-secondary-subtle pb-2">المعلومات الأساسية</h5>
+        
+        <div class="row g-3 mb-4">
+          <div class="col-md-8">
+            <label class="form-label-custom">عنوان العقار</label>
+            <input type="text" class="form-control-custom" placeholder="مثال: شقة فاخرة للبيع في الرمال" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label-custom">السعر (دولار)</label>
+            <input type="number" class="form-control-custom" placeholder="السعر بالدولار" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label-custom">الغرض</label>
+            <select class="form-control-custom form-select-custom" required>
+              <option value="">اختر...</option>
+              <option value="sale">للبيع</option>
+              <option value="rent">للإيجار</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label-custom">نوع العقار</label>
+            <select class="form-control-custom form-select-custom" required>
+              <option value="">اختر...</option>
+              <option>شقة</option>
+              <option>منزل</option>
+              <option>أرض</option>
+              <option>محل تجاري</option>
+              <option>مكتب</option>
+            </select>
+          </div>
+        </div>
+
+        <h5 class="mb-4 text-primary-custom fw-bolder border-bottom border-secondary-subtle pb-2">الموقع</h5>
+        
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <label class="form-label-custom">المحافظة</label>
+            <select class="form-control-custom form-select-custom" required>
+              <option value="">اختر المحافظة...</option>
+              <option>شمال غزة</option>
+              <option>غزة</option>
+              <option>الوسطى</option>
+              <option>خانيونس</option>
+              <option>رفح</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label-custom">المدينة / المنطقة</label>
+            <input type="text" class="form-control-custom" placeholder="مثال: الرمال، جباليا، النصيرات..." required>
+          </div>
+        </div>
+
+        <h5 class="mb-4 text-primary-custom fw-bolder border-bottom border-secondary-subtle pb-2">التفاصيل والمواصفات</h5>
+        
+        <div class="row g-3 mb-4">
+          <div class="col-md-3">
+            <label class="form-label-custom">المساحة (م²)</label>
+            <input type="number" class="form-control-custom" placeholder="المساحة">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label-custom">عدد الغرف</label>
+            <input type="number" class="form-control-custom" placeholder="عدد الغرف">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label-custom">عدد الحمامات</label>
+            <input type="number" class="form-control-custom" placeholder="الحمامات">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label-custom">الطابق</label>
+            <input type="text" class="form-control-custom" placeholder="رقم الطابق">
+          </div>
+          <div class="col-12">
+            <label class="form-label-custom">وصف مفصل للعقار</label>
+            <textarea class="form-control-custom" rows="4" placeholder="اكتب تفاصيل وميزات العقار هنا..." required></textarea>
+          </div>
+        </div>
+
+        <h5 class="mb-4 text-primary-custom fw-bolder border-bottom border-secondary-subtle pb-2">صور العقار</h5>
+        <div class="mb-4">
+          <label class="form-label-custom text-danger fw-bold">ملاحظة هامة: يجب رفع من 3 إلى 5 صور كحد أقصى.</label>
+          <div id="uploadZone" class="upload-zone p-5 text-center border rounded-3 bg-light">
+            <div class="upload-icon display-4 text-secondary mb-3"><i class="bi bi-cloud-arrow-up"></i></div>
+            <p class="mb-0 fw-bold">اضغط هنا أو اسحب الصور للإفلات</p>
+            <small class="text-muted">الحد المسموح 3-5 صور (JPG, PNG)</small>
+          </div>
+          <!-- Note: Frontend validation requires JS to work effectively for the 3-5 range rule -->
+          <input type="file" id="propertyImages" name="propertyImages" accept="image/*" multiple class="d-none" required>
+          <div id="imageError" class="text-danger mt-2 fw-bold d-none">يجب اختيار من 3 إلى 5 صور للعقار للمتابعة.</div>
+          <div id="imagePreview" class="d-flex gap-2 mt-3 flex-wrap"></div>
+        </div>
+
+        <div class="d-flex gap-3 pt-3 mt-4 border-top border-secondary-subtle">
+          <button type="submit" class="btn-accent px-5 py-2 w-auto d-inline-flex justify-content-center align-items-center">
+            نشر العقار <i class="bi bi-send ms-2"></i>
+          </button>
+          <a href="user-index.html" class="btn btn-outline-secondary px-5 py-2 fw-bold">
+            إلغاء
+          </a>
+        </div>
+
+      </form>
+    </div>
+
+  </main>
+</div>
+
+<!-- Scripts for Bootstrap & Validation -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

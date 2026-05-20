@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة غزة للعقارات - الإدارة</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+  
+  <!-- SIDEBAR -->
+  <aside class="sidebar bg-primary-dark">
+    <div class="sidebar-logo">
+      <div class="logo-icon bg-danger"><i class="bi bi-shield-lock"></i></div>
+      <div class="logo-text">
+        لوحة الإدارة
+        <small>بوابة غزة</small>
+      </div>
+    </div>
+    
+    <div class="sidebar-nav">
+      <div class="nav-section-title">النظام</div>
+      <a href="admin-index.html" class="sidebar-link active">
+        <i class="bi bi-speedometer2"></i> نظرة عامة
+      </a>
+      <a href="manage-properties.html" class="sidebar-link">
+        <i class="bi bi-buildings"></i> إدارة العقارات
+      </a>
+      <a href="manage-users.html" class="sidebar-link">
+        <i class="bi bi-people"></i> إدارة المستخدمين
+      </a>
+      
+      <div class="nav-section-title mt-3">الإعدادات</div>
+      <a href="#" class="sidebar-link">
+        <i class="bi bi-gear"></i> إعدادات المنصة
+      </a>
+    </div>
+    
+    <div class="sidebar-footer">
+      <div class="sidebar-user mb-3">
+        <img src="https://ui-avatars.com/api/?name=Admin&background=dc3545&color=fff" alt="Admin">
+        <div class="user-info">
+          <div>المدير العام</div>
+          <small>صلاحيات كاملة</small>
+        </div>
+      </div>
+      <a href="../login.html" class="sidebar-link text-danger m-0 bg-danger bg-opacity-10">
+        <i class="bi bi-box-arrow-right"></i> تسجيل الخروج
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dashboard-content">
+    <button id="sidebarToggleBtn" class="btn d-lg-none mb-3">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+    
+    <div class="dashboard-header">
+      <div>
+        <h1><span class="admin-badge text-danger border border-danger">مدير</span> إحصائيات المنصة</h1>
+        <p>مرحباً بك في لوحة تحكم الإدارة. إليك نظرة عامة على نشاط المنصة.</p>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-6 col-lg-3">
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-blue"><i class="bi bi-people"></i></div>
+          <div>
+            <div class="stat-value">1,250</div>
+            <div class="stat-label">إجمالي المستخدمين</div>
+            <div class="stat-change text-success"><i class="bi bi-arrow-up"></i> 12% هذا الشهر</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-primary-soft"><i class="bi bi-buildings"></i></div>
+          <div>
+            <div class="stat-value">520</div>
+            <div class="stat-label">إجمالي العقارات</div>
+            <div class="stat-change text-success"><i class="bi bi-arrow-up"></i> 8% هذا الشهر</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-accent"><i class="bi bi-hourglass-split"></i></div>
+          <div>
+            <div class="stat-value">24</div>
+            <div class="stat-label">عقارات قيد المراجعة</div>
+            <div class="stat-change text-warning">تحتاج إلى اتخاذ إجراء</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-green"><i class="bi bi-check2-all"></i></div>
+          <div>
+            <div class="stat-value">480</div>
+            <div class="stat-label">عقارات نشطة</div>
+            <div class="stat-change text-muted">تمت الموافقة عليها</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="card-custom p-4 h-100">
+          <h5 class="mb-4 text-primary-custom fw-bold">أحدث العقارات المضافة</h5>
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-center justify-content-between p-3 list-item-custom">
+              <div class="d-flex align-items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=100" class="img-60-60">
+                <div>
+                  <div class="fw-bold text-dark">شقة سكنية الرمال</div>
+                  <div class="text-muted small">بواسطة: أحمد علي</div>
+                </div>
+              </div>
+              <span class="badge-custom badge-warning">قيد المراجعة</span>
+            </div>
+            <div class="d-flex align-items-center justify-content-between p-3 list-item-custom">
+              <div class="d-flex align-items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=100" class="img-60-60">
+                <div>
+                  <div class="fw-bold text-dark">فيلا حديثة التصميم</div>
+                  <div class="text-muted small">بواسطة: محمد خليل</div>
+                </div>
+              </div>
+              <span class="badge-custom badge-warning">قيد المراجعة</span>
+            </div>
+          </div>
+          <a href="manage-properties.html" class="btn btn-outline-primary-custom w-100 mt-4">عرض الكل</a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card-custom p-4 h-100">
+          <h5 class="mb-4 text-primary-custom fw-bold">مستخدمون مسجلون حديثاً</h5>
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-center justify-content-between p-3 list-item-custom">
+              <div class="d-flex align-items-center gap-3">
+                <img src="https://ui-avatars.com/api/?name=Sara+Ali&background=random" class="avatar-50">
+                <div>
+                  <div class="fw-bold text-dark">سارة علي</div>
+                  <div class="text-muted small">sara@example.com</div>
+                </div>
+              </div>
+              <div class="text-muted small">منذ ساعتين</div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between p-3 list-item-custom">
+              <div class="d-flex align-items-center gap-3">
+                <img src="https://ui-avatars.com/api/?name=Omar+Zaid&background=random" class="avatar-50">
+                <div>
+                  <div class="fw-bold text-dark">عمر زيد</div>
+                  <div class="text-muted small">omar@example.com</div>
+                </div>
+              </div>
+              <div class="text-muted small">منذ 5 ساعات</div>
+            </div>
+          </div>
+          <a href="manage-users.html" class="btn btn-outline-primary-custom w-100 mt-4">إدارة المستخدمين</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

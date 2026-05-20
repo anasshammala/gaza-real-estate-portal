@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة غزة للعقارات - إدارة المستخدمين</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+  
+  <!-- SIDEBAR -->
+  <aside class="sidebar bg-primary-dark">
+    <div class="sidebar-logo">
+      <div class="logo-icon bg-danger"><i class="bi bi-shield-lock"></i></div>
+      <div class="logo-text">
+        لوحة الإدارة
+        <small>بوابة غزة</small>
+      </div>
+    </div>
+    
+    <div class="sidebar-nav">
+      <div class="nav-section-title">النظام</div>
+      <a href="admin-index.html" class="sidebar-link">
+        <i class="bi bi-speedometer2"></i> نظرة عامة
+      </a>
+      <a href="manage-properties.html" class="sidebar-link">
+        <i class="bi bi-buildings"></i> إدارة العقارات
+      </a>
+      <a href="manage-users.html" class="sidebar-link active">
+        <i class="bi bi-people"></i> إدارة المستخدمين
+      </a>
+      
+      <div class="nav-section-title mt-3">الإعدادات</div>
+      <a href="#" class="sidebar-link">
+        <i class="bi bi-gear"></i> إعدادات المنصة
+      </a>
+    </div>
+    
+    <div class="sidebar-footer">
+      <div class="sidebar-user mb-3">
+        <img src="https://ui-avatars.com/api/?name=Admin&background=dc3545&color=fff" alt="Admin">
+        <div class="user-info">
+          <div>المدير العام</div>
+          <small>صلاحيات كاملة</small>
+        </div>
+      </div>
+      <a href="../login.html" class="sidebar-link text-danger m-0 bg-danger bg-opacity-10">
+        <i class="bi bi-box-arrow-right"></i> تسجيل الخروج
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dashboard-content">
+    <button id="sidebarToggleBtn" class="btn d-lg-none mb-3">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+    
+    <div class="dashboard-header d-block d-md-flex">
+      <div>
+        <h1>إدارة المستخدمين</h1>
+        <p>عرض تفاصيل المستخدمين وعقاراتهم المسجلة في المنصة.</p>
+      </div>
+      <div class="mt-3 mt-md-0 search-bar-wrap w-100 max-w-300">
+        <input type="text" placeholder="بحث باسم المستخدم أو الهاتف...">
+        <i class="bi bi-search search-icon"></i>
+      </div>
+    </div>
+
+    <!-- USERS TABLE -->
+    <div class="card-custom p-4">
+      
+      <div class="table-responsive">
+        <table class="table-custom">
+          <thead>
+            <tr>
+              <th>المستخدم</th>
+              <th>البريد الإلكتروني</th>
+              <th>رقم الهاتف</th>
+              <th>عدد العقارات</th>
+              <th>تاريخ التسجيل</th>
+              <th>الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center gap-3">
+                  <img src="https://ui-avatars.com/api/?name=Ahmed+Ali&background=F5A623&color=fff" class="avatar-40" alt="User">
+                  <div class="fw-bold text-primary">أحمد علي</div>
+                </div>
+              </td>
+              <td>ahmed@example.com</td>
+              <td>0590000000</td>
+              <td><span class="badge-custom badge-info px-3">5 عقارات</span></td>
+              <td>10 مايو 2024</td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary-custom" data-bs-toggle="modal" data-bs-target="#userPropertiesModal">
+                  <i class="bi bi-houses"></i> عرض العقارات
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center gap-3">
+                  <img src="https://ui-avatars.com/api/?name=Sara+Ali&background=random" class="avatar-40" alt="User">
+                  <div class="fw-bold text-primary">سارة علي</div>
+                </div>
+              </td>
+              <td>sara@example.com</td>
+              <td>0591111111</td>
+              <td><span class="badge-custom badge-info px-3">1 عقار</span></td>
+              <td>12 مايو 2024</td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary-custom" data-bs-toggle="modal" data-bs-target="#userPropertiesModal">
+                  <i class="bi bi-houses"></i> عرض العقارات
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center gap-3">
+                  <img src="https://ui-avatars.com/api/?name=Mohammed+Khalil&background=random" class="avatar-40" alt="User">
+                  <div class="fw-bold text-primary">محمد خليل</div>
+                </div>
+              </td>
+              <td>mohammed@example.com</td>
+              <td>0592222222</td>
+              <td><span class="badge-custom badge-light text-muted px-3 border">لا يوجد</span></td>
+              <td>15 مايو 2024</td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary-custom" disabled>
+                  <i class="bi bi-houses"></i> عرض العقارات
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+
+  </main>
+</div>
+
+<!-- USER PROPERTIES MODAL -->
+<div class="modal fade" id="userPropertiesModal" tabindex="-1" aria-labelledby="userPropertiesModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content modal-content-custom">
+      <div class="modal-header border-bottom-light">
+        <h5 class="modal-title fw-bold text-primary-custom" id="userPropertiesModalLabel">عقارات المستخدم: أحمد علي</h5>
+        <button type="button" class="btn-close m-0 ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4 bg-light">
+        
+        <div class="d-flex flex-column gap-3">
+          <!-- Property Item -->
+          <div class="d-flex align-items-center justify-content-between p-3 modal-list-item">
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=100" class="img-80-60">
+              <div>
+                <div class="fw-bold text-dark">شقة سكنية الرمال</div>
+                <div class="text-muted small"><i class="bi bi-geo-alt text-accent me-1"></i> غزة - للبيع</div>
+              </div>
+            </div>
+            <div class="text-end">
+              <div class="fw-bold fs-5 text-primary-custom mb-1">120,000 دولار</div>
+              <span class="badge-custom badge-warning">قيد المراجعة</span>
+            </div>
+          </div>
+          
+          <!-- Property Item -->
+          <div class="d-flex align-items-center justify-content-between p-3 modal-list-item">
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=100" class="img-80-60">
+              <div>
+                <div class="fw-bold text-dark">فيلا حديثة</div>
+                <div class="text-muted small"><i class="bi bi-geo-alt text-accent me-1"></i> خانيونس - للإيجار</div>
+              </div>
+            </div>
+            <div class="text-end">
+              <div class="fw-bold fs-5 text-primary-custom mb-1">400 دولار</div>
+              <span class="badge-custom badge-success">معتمد</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
