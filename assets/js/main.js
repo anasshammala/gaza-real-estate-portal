@@ -258,32 +258,29 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    // Check for query parameters in URL (e.g. ?search=VALUE or ?type=شقة or ?status=sale) when page loads
+    // Check for query parameters in URL when page loads (from home search or direct links)
     const urlParams = new URLSearchParams(window.location.search);
-    let hasParams = false;
-    
+
     if (urlParams.has('search') && filterKeyword) {
-      const searchParam = urlParams.get('search');
-      filterKeyword.value = searchParam;
-      hasParams = true;
+      filterKeyword.value = urlParams.get('search');
     }
     if (urlParams.has('type') && filterType) {
-      const typeParam = urlParams.get('type');
-      filterType.value = typeParam;
-      hasParams = true;
+      filterType.value = urlParams.get('type');
     }
     if (urlParams.has('status') && filterStatus) {
-      const statusParam = urlParams.get('status');
-      filterStatus.value = statusParam;
-      hasParams = true;
+      filterStatus.value = urlParams.get('status');
     }
     if (urlParams.has('location') && filterLocation) {
-      const locationParam = urlParams.get('location');
-      filterLocation.value = locationParam;
-      hasParams = true;
+      filterLocation.value = urlParams.get('location');
     }
 
-    if (hasParams) {
+    const hasFilterParams = urlParams.has('search') || urlParams.has('type') || urlParams.has('area');
+
+    if (urlParams.has('area') && filterLocation) {
+      filterLocation.value = urlParams.get('area');
+    }
+
+    if (hasFilterParams) {
       applyPropertiesFilter();
     } else {
       renderFilteredGrid(window.sampleProperties);
@@ -293,21 +290,17 @@ document.addEventListener('DOMContentLoaded', function() {
   // 6. Details Page Contact Reveal (property-details.html)
   const callContactBtn = document.getElementById('callContactBtn');
   if (callContactBtn) {
-    callContactBtn.addEventListener('click', function() {
+    callContactBtn.addEventListener('click', function handler() {
       const phone = this.getAttribute('data-phone');
       const phoneText = document.getElementById('phoneText');
-      if (phoneText) {
-        phoneText.textContent = phone;
-      }
-      this.classList.remove('btn');
+      if (phoneText) phoneText.textContent = phone;
       this.classList.add('btn-success');
-      // Create second click redirect
+      this.removeEventListener('click', handler);
       this.addEventListener('click', function() {
         window.location.href = `tel:${phone}`;
       });
     });
   }
-
   // 7. Add Property Image Validation & Upload Click (dashboard/add-property.html)
   const uploadZone = document.getElementById('uploadZone');
   const propertyImages = document.getElementById('propertyImages');
@@ -473,7 +466,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const params = [];
       if (searchVal) params.push(`search=${encodeURIComponent(searchVal)}`);
       if (typeVal) params.push(`type=${encodeURIComponent(typeVal)}`);
-      if (areaVal) params.push(`location=${encodeURIComponent(areaVal)}`);
+      if (areaVal) params.push(`area=${encodeURIComponent(areaVal)}`);
       if (purposeVal) params.push(`status=${encodeURIComponent(purposeVal)}`);
       
       const queryString = params.length > 0 ? '?' + params.join('&') : '';
@@ -482,3 +475,198 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 });
+(function () {
+  const form = document.getElementById('platformSettingsForm');
+  const defaults = {
+    platformName: 'بوابة غزة للعقارات',
+    platformEmail: 'info@gazarealestate.ps',
+    platformPhone: '+970 59 123 4567',
+    platformAddress: 'غزة، فلسطين - شارع عمر المختار',
+    primaryColor: '#1B3C74',
+    maxImages: '5',
+    propertiesPerPage: '9',
+    featuredProperties: true,
+    enableRegistration: true,
+    enableEmailVerification: true,
+    enableBrokerAccounts: false
+  };
+  // 13. Mobile Menu Toggle (index.html)
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn'); 
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', function() {
+      mobileMenu.classList.toggle('show');
+    });
+  }
+
+  const logoZone = document.getElementById('logoUploadZone');
+  const logoInput = document.getElementById('logoUploadInput');
+  const logoPreview = document.getElementById('logoPreviewImg');
+  const logoPlaceholder = document.getElementById('logoPlaceholder');
+  const logoBox = document.getElementById('logoPreviewBox');
+  const colorPicker = document.getElementById('primaryColor');
+  const colorHex = document.getElementById('primaryColorHex');
+  const colorBar = document.getElementById('colorPreviewBar');
+  const saveToast = document.getElementById('saveToast');
+  const toast = saveToast ? new bootstrap.Toast(saveToast, { delay: 3500 }) : null;
+
+  function updateColorPreview(color) {
+    if (colorHex) colorHex.value = color;
+    if (colorBar) colorBar.style.background = 'linear-gradient(90deg, ' + color + ' 0%, var(--accent) 100%)';
+  }
+
+  if (colorPicker) {
+    updateColorPreview(colorPicker.value);
+    colorPicker.addEventListener('input', function () { updateColorPreview(this.value); });
+  }
+
+  if (logoZone && logoInput) {
+    logoZone.addEventListener('click', function () { logoInput.click(); });
+    logoZone.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); logoInput.click(); } });
+    logoInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        logoPreview.src = e.target.result;
+        logoPreview.classList.remove('d-none');
+        logoPlaceholder.classList.add('d-none');
+        logoBox.classList.add('has-logo');
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const now = new Date();
+      const saved = document.getElementById('lastSavedText');
+      if (saved) {
+        saved.textContent = now.toLocaleDateString('ar-EG', { day: 'numeric', month: 'long', year: 'numeric' }) +
+          ' — ' + now.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+      }
+      if (toast) toast.show();
+    });
+  }
+
+  document.getElementById('resetSettingsBtn')?.addEventListener('click', function () {
+    if (!confirm('هل أنت متأكد من إعادة تعيين جميع الإعدادات إلى القيم الافتراضية؟')) return;
+    document.getElementById('platformName').value = defaults.platformName;
+    document.getElementById('platformEmail').value = defaults.platformEmail;
+    document.getElementById('platformPhone').value = defaults.platformPhone;
+    document.getElementById('platformAddress').value = defaults.platformAddress;
+    document.getElementById('maxImages').value = defaults.maxImages;
+    document.getElementById('propertiesPerPage').value = defaults.propertiesPerPage;
+    document.getElementById('featuredProperties').checked = defaults.featuredProperties;
+    document.getElementById('enableRegistration').checked = defaults.enableRegistration;
+    document.getElementById('enableEmailVerification').checked = defaults.enableEmailVerification;
+    document.getElementById('enableBrokerAccounts').checked = defaults.enableBrokerAccounts;
+    if (colorPicker) { colorPicker.value = defaults.primaryColor; updateColorPreview(defaults.primaryColor); }
+    logoPreview.classList.add('d-none');
+    logoPreview.src = '';
+    logoPlaceholder.classList.remove('d-none');
+    logoBox.classList.remove('has-logo');
+    logoInput.value = '';
+  });
+
+  document.getElementById('logoutAllDevicesBtn')?.addEventListener('click', function () {
+    if (confirm('سيتم تسجيل خروجك من جميع الأجهزة ما عدا الجهاز الحالي. هل تريد المتابعة؟')) {
+      document.querySelectorAll('.session-revoke-btn').forEach(function (btn) {
+        btn.closest('.session-item')?.remove();
+      });
+      alert('تم تسجيل الخروج من جميع الأجهزة الأخرى بنجاح.');
+    }
+  });
+
+  document.querySelectorAll('.session-revoke-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (confirm('إنهاء هذه الجلسة؟')) this.closest('.session-item')?.remove();
+    });
+  });
+})();
+
+(function () {
+  const tabBtns = document.querySelectorAll('.settings-tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const target = this.getAttribute('data-tab');
+      tabBtns.forEach(function (b) { b.classList.remove('active'); });
+      tabPanels.forEach(function (p) { p.classList.remove('active'); });
+      this.classList.add('active');
+      document.getElementById('tab-' + target)?.classList.add('active');
+    });
+  });
+
+  function updateAvatarPreview(src) {
+    ['profileAvatarImg', 'avatarTabPreview', 'sidebarAvatar'].forEach(function (id) {
+      const el = document.getElementById(id);
+      if (el) el.src = src;
+    });
+  }
+
+  function handleAvatarFile(file) {
+    if (!file || !file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = function (e) { updateAvatarPreview(e.target.result); };
+    reader.readAsDataURL(file);
+  }
+
+  document.getElementById('quickAvatarUpload')?.addEventListener('change', function () {
+    handleAvatarFile(this.files[0]);
+  });
+
+  const avatarZone = document.getElementById('avatarUploadZone');
+  const avatarInput = document.getElementById('avatarUploadInput');
+  if (avatarZone && avatarInput) {
+    avatarZone.addEventListener('click', function () { avatarInput.click(); });
+    avatarInput.addEventListener('change', function () { handleAvatarFile(this.files[0]); });
+  }
+
+  document.getElementById('saveAvatarBtn')?.addEventListener('click', function () {
+    alert('تم حفظ الصورة الشخصية بنجاح!');
+  });
+
+  document.getElementById('personalInfoForm')?.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const city = document.getElementById('city');
+    const cityText = city.options[city.selectedIndex].text;
+    const bio = document.getElementById('bio').value;
+    document.getElementById('displayFullName').textContent = name;
+    document.getElementById('displayEmail').textContent = email;
+    document.getElementById('displayPhone').textContent = phone;
+    document.getElementById('displayCity').textContent = cityText + ' — الرمال';
+    document.getElementById('displayBio').textContent = bio;
+    alert('تم حفظ المعلومات الشخصية بنجاح!');
+  });
+
+  const newPass = document.getElementById('newPasswordProfile');
+  const strengthBar = document.getElementById('passwordStrengthBar');
+  if (newPass && strengthBar) {
+    newPass.addEventListener('input', function () {
+      const len = this.value.length;
+      let width = 0, color = '#dc3545';
+      if (len >= 4) { width = 33; color = '#ffc107'; }
+      if (len >= 8) { width = 66; color = '#17a2b8'; }
+      if (len >= 12) { width = 100; color = '#28a745'; }
+      strengthBar.style.width = width + '%';
+      strengthBar.style.background = color;
+    });
+  }
+
+  document.getElementById('passwordForm')?.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const np = document.getElementById('newPasswordProfile').value;
+    const cp = document.getElementById('confirmPasswordProfile').value;
+    if (np !== cp) { alert('كلمتا المرور غير متطابقتين!'); return; }
+    if (np.length < 8) { alert('يجب أن تكون كلمة المرور 8 أحرف على الأقل.'); return; }
+    alert('تم تحديث كلمة المرور بنجاح!');
+    this.reset();
+    if (strengthBar) { strengthBar.style.width = '0'; }
+  });
+})();

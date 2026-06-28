@@ -292,6 +292,18 @@ textarea.form-control-custom { resize: vertical; min-height: 120px; }
 .upload-zone { border: 2px dashed var(--mid-gray); border-radius: 12px; padding: 36px; text-align: center; cursor: pointer; transition: var(--transition); }
 .upload-zone:hover { border-color: var(--primary); background: rgba(27,60,116,0.03); }
 .upload-zone .upload-icon { font-size: 40px; color: var(--mid-gray); margin-bottom: 10px; }
+.hero-badge {
+  padding: 5%;
+  margin-top: 7% ;
+}
+/* تأكدي من وجود هذه الخصائص أو ما يشابهها في ملف الـ CSS الخارجي */
+.mobile-menu-custom {
+  display: none; /* مخفي افتراضياً على الجوال */
+}
+
+.mobile-menu-custom.show {
+  display: block !important; /* يظهر فوراً عند الضغط على الزر */
+}
 
 /* ===== PAGINATION ===== */
 .pagination-custom { display: flex; justify-content: center; gap: 6px; margin-top: 32px; }
@@ -518,7 +530,62 @@ textarea.form-control-custom { resize: vertical; min-height: 120px; }
 .footer-brand i {
   color: var(--accent) !important;
 }
+.page-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 13px; margin-bottom: 20px; }
+  .page-breadcrumb a { color: var(--text-muted); transition: color .2s; }
+  .page-breadcrumb a:hover { color: var(--primary); }
+  .page-breadcrumb .sep { color: var(--mid-gray); }
+  .page-breadcrumb .current { color: var(--primary); font-weight: 700; }
+  .settings-card { background: var(--white); border-radius: var(--card-radius); box-shadow: var(--card-shadow); margin-bottom: 24px; overflow: hidden; transition: var(--transition); }
+  .settings-card:hover { box-shadow: 0 8px 28px rgba(27,60,116,0.12); }
+  .settings-card-header { padding: 18px 24px; border-bottom: 2px solid var(--light-gray); display: flex; align-items: center; gap: 14px; background: linear-gradient(135deg, rgba(27,60,116,0.04) 0%, rgba(245,166,35,0.06) 100%); }
+  .settings-card-header .icon-wrap { width: 44px; height: 44px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .settings-card-header h5 { margin: 0; font-size: 17px; font-weight: 800; color: var(--primary); }
+  .settings-card-header p { margin: 2px 0 0; font-size: 12px; color: var(--text-muted); }
+  .settings-card-body { padding: 24px; }
+  .form-switch-custom { padding-right: 2.5em; }
+  .form-switch-custom .form-check-input { width: 2.8em; height: 1.4em; cursor: pointer; }
+  .form-switch-custom .form-check-input:checked { background-color: var(--primary); border-color: var(--primary); }
+  .form-switch-custom .form-check-label { font-weight: 600; font-size: 14px; cursor: pointer; }
+  .switch-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; margin-right: 2.5em; }
+  .logo-preview-box { width: 120px; height: 120px; border-radius: 14px; border: 2px dashed var(--mid-gray); display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--light); transition: var(--transition); }
+  .logo-preview-box img { width: 100%; height: 100%; object-fit: contain; }
+  .logo-preview-box.has-logo { border-style: solid; border-color: var(--primary); }
+  .color-preview-bar { height: 8px; border-radius: 4px; margin-top: 10px; background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%); transition: background .3s; }
+  .settings-actions-bar { position: sticky; bottom: 0; background: var(--white); border-radius: var(--card-radius); box-shadow: 0 -4px 24px rgba(27,60,116,0.12); padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; z-index: 10; margin-top: 8px; }
+  .session-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-radius: 10px; background: var(--light); margin-bottom: 10px; transition: var(--transition); }
+  .session-item:hover { background: #eef2f8; }
+  .session-item:last-child { margin-bottom: 0; }
+  .session-device { display: flex; align-items: center; gap: 12px; }
+  .session-device i { font-size: 22px; color: var(--primary); }
+  .toast-save { position: fixed; bottom: 24px; left: 24px; z-index: 2000; min-width: 280px;
+   }
 
+
+   .profile-hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: var(--card-radius); padding: 32px; color: #fff; position: relative; overflow: hidden; margin-bottom: 24px; box-shadow: var(--card-shadow); }
+   .profile-hero::before { content: ''; position: absolute; top: -40%; left: -10%; width: 300px; height: 300px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+   .profile-hero::after { content: ''; position: absolute; bottom: -30%; right: -5%; width: 200px; height: 200px; background: rgba(245,166,35,0.12); border-radius: 50%; }
+   .profile-hero-inner { position: relative; z-index: 2; }
+   .profile-avatar-wrap { position: relative; width: 110px; height: 110px; flex-shrink: 0; }
+   .profile-avatar-wrap img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+   .profile-avatar-edit { position: absolute; bottom: 4px; left: 4px; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; border: 2px solid #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14px; transition: var(--transition); }
+   .profile-avatar-edit:hover { background: var(--accent-dark); transform: scale(1.08); }
+   .profile-verified { display: inline-flex; align-items: center; gap: 6px; background: rgba(40,167,69,0.25); color: #b8f0c8; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+   .profile-meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; font-size: 14px; opacity: 0.9; }
+   .profile-meta span { display: inline-flex; align-items: center; gap: 6px; }
+   .settings-tab-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; border-bottom: 2px solid var(--light-gray); padding-bottom: 0; }
+   .settings-tab-btn { background: transparent; border: none; padding: 12px 20px; font-family: 'Cairo', sans-serif; font-weight: 700; font-size: 14px; color: var(--text-muted); border-radius: 10px 10px 0 0; cursor: pointer; transition: var(--transition); border-bottom: 3px solid transparent; margin-bottom: -2px; }
+   .settings-tab-btn:hover { color: var(--primary); background: rgba(27,60,116,0.05); }
+   .settings-tab-btn.active { color: var(--primary); border-bottom-color: var(--accent); background: rgba(27,60,116,0.06); }
+   .tab-panel { display: none; animation: fadeIn .3s ease; }
+   .tab-panel.active { display: block; }
+   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+   .info-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--light-gray); }
+   .info-row:last-child { border-bottom: none; }
+   .info-row .label { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+   .info-row .value { font-size: 14px; font-weight: 700; color: var(--text-dark); }
+   .password-strength { height: 4px; border-radius: 2px; background: var(--light-gray); margin-top: 8px; overflow: hidden; }
+   .password-strength-bar { height: 100%; width: 0; border-radius: 2px; transition: width .3s, background .3s; }
+   .recent-property-row:hover { background: #f8f9ff; }
 
 
 
