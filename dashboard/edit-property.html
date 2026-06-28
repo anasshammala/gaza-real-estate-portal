@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة غزة للعقارات - تعديل العقار</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+  
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon"><i class="bi bi-buildings"></i></div>
+      <div class="logo-text">
+        بوابة غزة
+        <small>للعقارات</small>
+      </div>
+    </div>
+    
+    <div class="sidebar-nav">
+      <div class="nav-section-title">القائمة الرئيسية</div>
+      <a href="user-index.html" class="sidebar-link">
+        <i class="bi bi-grid-1x2"></i> لوحة التحكم
+      </a>
+      <a href="add-property.html" class="sidebar-link">
+        <i class="bi bi-plus-square"></i> إضافة عقار
+      </a>
+      
+      <div class="nav-section-title mt-3">الإعدادات</div>
+      <a href="profile.html" class="sidebar-link">
+        <i class="bi bi-person"></i> الملف الشخصي
+      </a>
+    </div>
+    
+    <div class="sidebar-footer">
+      <div class="sidebar-user mb-3">
+        <img src="https://ui-avatars.com/api/?name=Ahmed+Ali&background=F5A623&color=fff" alt="User">
+        <div class="user-info">
+          <div>أحمد علي</div>
+          <small>صاحب عقار</small>
+        </div>
+      </div>
+      <a href="../login.html" class="sidebar-link text-danger m-0 bg-danger bg-opacity-10">
+        <i class="bi bi-box-arrow-right"></i> تسجيل الخروج
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dashboard-content">
+    <button id="sidebarToggleBtn" class="btn d-lg-none mb-3">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+    
+    <div class="dashboard-header">
+      <div>
+        <h1>تعديل تفاصيل العقار</h1>
+        <p>تحديث بيانات العقار الخاص بك.</p>
+      </div>
+    </div>
+
+    <!-- ALERT MESSAGE -->
+    <div class="alert alert-warning-custom d-flex align-items-center mb-4" role="alert">
+      <i class="bi bi-exclamation-triangle-fill fs-4 me-3"></i>
+      <div>
+        <strong>ملاحظة هامة:</strong> أي تعديل على بيانات العقار سيقوم بإعادة حالته إلى <span class="badge-custom badge-warning mx-1">قيد المراجعة</span> ولن يظهر للعامة حتى يتم اعتماده من جديد. (لا يمكن تعديل العقارات المرفوضة نهائياً).
+      </div>
+    </div>
+
+    <div class="card-custom p-4">
+      <form id="editPropertyForm" action="user-index.html" method="get">
+        
+        <h5 class="mb-4 text-primary-custom section-header-custom">المعلومات الأساسية</h5>
+        
+        <div class="row g-3 mb-4">
+          <div class="col-md-8">
+            <label class="form-label-custom">عنوان العقار</label>
+            <input type="text" class="form-control-custom" value="شقة سكنية الرمال" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label-custom">السعر (دولار)</label>
+            <input type="number" class="form-control-custom" value="1200" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label-custom">الغرض</label>
+            <select class="form-control-custom form-select-custom" required>
+              <option value="sale">للبيع</option>
+              <option value="rent" selected>للإيجار</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label-custom">نوع العقار</label>
+            <select class="form-control-custom form-select-custom" required>
+              <option selected>شقة</option>
+              <option>منزل</option>
+              <option>أرض</option>
+              <option>محل تجاري</option>
+              <option>مكتب</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label-custom">المنطقة</label>
+            <select class="form-control-custom form-select-custom" required>
+              <option>الشمال</option>
+              <option selected>غزة</option>
+              <option>الوسطى</option>
+              <option>خانيونس</option>
+              <option>رفح</option>
+            </select>
+          </div>
+        </div>
+
+        <h5 class="mb-4 text-primary-custom section-header-custom">التفاصيل والمواصفات</h5>
+        
+        <div class="row g-3 mb-4">
+          <div class="col-md-3">
+            <label class="form-label-custom">المساحة (م²)</label>
+            <input type="number" class="form-control-custom" value="150">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label-custom">عدد الغرف</label>
+            <input type="number" class="form-control-custom" value="3">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label-custom">عدد الحمامات</label>
+            <input type="number" class="form-control-custom" value="2">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label-custom">الطابق</label>
+            <input type="text" class="form-control-custom" value="الرابع">
+          </div>
+          <div class="col-12">
+            <label class="form-label-custom">وصف مفصل للعقار</label>
+            <textarea class="form-control-custom" rows="4" required>شقة سكنية فاخرة مطلة على البحر مباشرة في منطقة الرمال بمدينة غزة. الشقة مشطبة سوبر ديلوكس، تتميز بتهوية وإضاءة طبيعية ممتازة في جميع الغرف.</textarea>
+          </div>
+        </div>
+
+        <h5 class="mb-4 text-primary-custom section-header-custom">صور العقار الحالية</h5>
+        <div class="mb-4">
+          <div class="d-flex gap-2 mb-3 flex-wrap">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=200" class="img-120">
+              <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1 btn-delete-img"><i class="bi bi-x"></i></button>
+            </div>
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=200" class="img-120">
+              <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1 btn-delete-img"><i class="bi bi-x"></i></button>
+            </div>
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=200" class="img-120">
+              <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1 btn-delete-img"><i class="bi bi-x"></i></button>
+            </div>
+          </div>
+          
+          <label class="form-label-custom mt-3">إضافة صور جديدة</label>
+          <div id="uploadZone" class="upload-zone p-4">
+            <div class="upload-icon fs-4"><i class="bi bi-plus-circle"></i></div>
+            <p class="mb-0 fw-bold fs-6">اضغط هنا لرفع صور إضافية</p>
+          </div>
+          <input type="file" id="propertyImages" accept="image/*" multiple class="d-none">
+        </div>
+
+        <div class="d-flex gap-3 pt-3 mt-4 border-top-light">
+          <button type="submit" class="btn-accent btn-submit-custom">
+            حفظ التعديلات <i class="bi bi-save"></i>
+          </button>
+          <a href="user-index.html" class="btn btn-outline-secondary btn-cancel-custom">
+            إلغاء
+          </a>
+        </div>
+
+      </form>
+    </div>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

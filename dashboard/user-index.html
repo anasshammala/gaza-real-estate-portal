@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة غزة للعقارات - لوحة تحكم المستخدم</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+  
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon"><i class="bi bi-buildings"></i></div>
+      <div class="logo-text">
+        بوابة غزة
+        <small>للعقارات</small>
+      </div>
+    </div>
+    
+    <div class="sidebar-nav">
+      <div class="nav-section-title">القائمة الرئيسية</div>
+      <a href="user-index.html" class="sidebar-link active">
+        <i class="bi bi-grid-1x2"></i> لوحة التحكم
+      </a>
+      <a href="add-property.html" class="sidebar-link">
+        <i class="bi bi-plus-square"></i> إضافة عقار
+      </a>
+      
+      <div class="nav-section-title mt-3">الإعدادات</div>
+      <a href="profile.html" class="sidebar-link">
+        <i class="bi bi-person"></i> الملف الشخصي
+      </a>
+    </div>
+    
+    <div class="sidebar-footer">
+      <div class="sidebar-user mb-3">
+        <img src="https://ui-avatars.com/api/?name=Ahmed+Ali&background=F5A623&color=fff" alt="User">
+        <div class="user-info">
+          <div>أحمد علي</div>
+          <small>صاحب عقار</small>
+        </div>
+      </div>
+      <a href="../login.html" class="sidebar-link text-danger m-0 bg-danger bg-opacity-10">
+        <i class="bi bi-box-arrow-right"></i> تسجيل الخروج
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dashboard-content">
+    <button id="sidebarToggleBtn" class="btn d-lg-none mb-3">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+    
+    <div class="dashboard-header">
+      <div>
+        <h1>مرحباً، أحمد 👋</h1>
+        <p>نظرة عامة على أداء عقاراتك على المنصة.</p>
+      </div>
+      <a href="add-property.html" class="btn-accent"><i class="bi bi-plus-lg"></i> إضافة عقار جديد</a>
+    </div>
+
+    <!-- STATS -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-6 col-lg-3">
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-blue"><i class="bi bi-buildings"></i></div>
+          <div>
+            <div class="stat-value">5</div>
+            <div class="stat-label">إجمالي العقارات</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-green"><i class="bi bi-check-circle"></i></div>
+          <div>
+            <div class="stat-value">3</div>
+            <div class="stat-label">عقارات معتمدة</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-accent"><i class="bi bi-hourglass-split"></i></div>
+          <div>
+            <div class="stat-value">1</div>
+            <div class="stat-label">قيد المراجعة</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-red"><i class="bi bi-x-circle"></i></div>
+          <div>
+            <div class="stat-value">1</div>
+            <div class="stat-label">مرفوضة</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROPERTIES TABLE -->
+    <div class="card-custom p-4">
+      <h4 class="mb-4 fw-bold text-primary">إدارة العقارات</h4>
+      <div class="table-responsive">
+        <table id="userPropertiesTable" class="table-custom">
+          <thead>
+            <tr>
+              <th>العقار</th>
+              <th>النوع</th>
+              <th>الغرض</th>
+              <th>السعر</th>
+              <th>الحالة</th>
+              <th>الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=100" alt="Prop" class="property-list-img">
+                  <div>
+                    <div class="fw-bold text-primary">شقة سكنية الرمال</div>
+                    <div class="text-muted small"><i class="bi bi-geo-alt"></i> غزة</div>
+                  </div>
+                </div>
+              </td>
+              <td>شقة</td>
+              <td><span class="badge-custom badge-success">للإيجار</span></td>
+              <td class="fw-bold text-dark">1,200 دولار / شهرياً</td>
+              <td><span class="badge-custom badge-success"><i class="bi bi-check"></i> معتمد</span></td>
+              <td>
+                <div class="d-flex gap-2">
+                  <a href="../property-details.html" class="action-btn action-btn-view" title="عرض"><i class="bi bi-eye"></i></a>
+                  <a href="edit-property.html" class="action-btn action-btn-edit" title="تعديل"><i class="bi bi-pencil"></i></a>
+                  <button class="action-btn action-btn-delete" title="حذف"><i class="bi bi-trash"></i></button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=100" alt="Prop" class="property-list-img">
+                  <div>
+                    <div class="fw-bold text-primary">أرض زراعية</div>
+                    <div class="text-muted small"><i class="bi bi-geo-alt"></i> الشمال</div>
+                  </div>
+                </div>
+              </td>
+              <td>أرض</td>
+              <td><span class="badge-custom badge-primary-soft">للبيع</span></td>
+              <td class="fw-bold text-dark">50,000 دولار</td>
+              <td><span class="badge-custom badge-warning"><i class="bi bi-hourglass"></i> قيد المراجعة</span></td>
+              <td>
+                <div class="d-flex gap-2">
+                  <a href="../property-details.html" class="action-btn action-btn-view" title="عرض"><i class="bi bi-eye"></i></a>
+                  <a href="edit-property.html" class="action-btn action-btn-edit" title="تعديل"><i class="bi bi-pencil"></i></a>
+                  <button class="action-btn action-btn-delete" title="حذف"><i class="bi bi-trash"></i></button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=100" alt="Prop" class="property-list-img">
+                  <div>
+                    <div class="fw-bold text-primary">مكتب تجاري</div>
+                    <div class="text-muted small"><i class="bi bi-geo-alt"></i> النصر</div>
+                  </div>
+                </div>
+              </td>
+              <td>مكتب</td>
+              <td><span class="badge-custom badge-success">للإيجار</span></td>
+              <td class="fw-bold text-dark">800 دولار / شهرياً</td>
+              <td><span class="badge-custom badge-danger"><i class="bi bi-x"></i> مرفوض</span></td>
+              <td>
+                <div class="d-flex gap-2">
+                  <button class="action-btn action-btn-delete" title="حذف"><i class="bi bi-trash"></i></button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

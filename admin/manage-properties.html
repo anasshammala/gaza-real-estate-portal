@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة غزة للعقارات - إدارة العقارات</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+  
+  <!-- SIDEBAR -->
+  <aside class="sidebar bg-primary-dark">
+    <div class="sidebar-logo">
+      <div class="logo-icon bg-danger"><i class="bi bi-shield-lock"></i></div>
+      <div class="logo-text">
+        لوحة الإدارة
+        <small>بوابة غزة</small>
+      </div>
+    </div>
+    
+    <div class="sidebar-nav">
+      <div class="nav-section-title">النظام</div>
+      <a href="admin-index.html" class="sidebar-link">
+        <i class="bi bi-speedometer2"></i> نظرة عامة
+      </a>
+      <a href="manage-properties.html" class="sidebar-link active">
+        <i class="bi bi-buildings"></i> إدارة العقارات
+      </a>
+      <a href="manage-users.html" class="sidebar-link">
+        <i class="bi bi-people"></i> إدارة المستخدمين
+      </a>
+      
+      <div class="nav-section-title mt-3">الإعدادات</div>
+      <a href="settings.html" class="sidebar-link">
+        <i class="bi bi-gear"></i> إعدادات المنصة
+      </a>
+    </div>
+    
+    <div class="sidebar-footer">
+      <div class="sidebar-user mb-3">
+        <img src="https://ui-avatars.com/api/?name=Admin&background=dc3545&color=fff" alt="Admin">
+        <div class="user-info">
+          <div>المدير العام</div>
+          <small>صلاحيات كاملة</small>
+        </div>
+      </div>
+      <a href="../login.html" class="sidebar-link text-danger m-0 bg-danger bg-opacity-10">
+        <i class="bi bi-box-arrow-right"></i> تسجيل الخروج
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dashboard-content">
+    <button id="sidebarToggleBtn" class="btn d-lg-none mb-3">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+    
+    <div class="dashboard-header d-block d-md-flex">
+      <div>
+        <h1>إدارة العقارات</h1>
+        <p>مراجعة العقارات المضافة من قبل المستخدمين وتغيير حالتها.</p>
+      </div>
+      <div class="mt-3 mt-md-0 search-bar-wrap w-100 max-w-300">
+        <input type="text" placeholder="بحث عن عقار...">
+        <i class="bi bi-search search-icon"></i>
+      </div>
+    </div>
+
+    <!-- PROPERTIES TABLE -->
+    <div class="card-custom p-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h5 class="fw-bold text-primary m-0">قائمة العقارات</h5>
+        <select id="adminFilterStatus" class="form-select-custom form-control-custom w-auto">
+          <option>الكل</option>
+          <option>قيد المراجعة</option>
+          <option>معتمد</option>
+          <option>مرفوض</option>
+        </select>
+      </div>
+      
+      <div class="table-responsive">
+        <table id="adminPropertiesTable" class="table-custom">
+          <thead>
+            <tr>
+              <th>العقار</th>
+              <th>المالك</th>
+              <th>السعر</th>
+              <th>الحالة</th>
+              <th>تاريخ الإضافة</th>
+              <th>الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=100" alt="Prop" class="property-list-img">
+                  <div>
+                    <div class="fw-bold text-primary">شقة سكنية الرمال</div>
+                    <div class="text-muted small">غزة</div>
+                  </div>
+                </div>
+              </td>
+              <td>أحمد علي</td>
+              <td class="fw-bold">1,200 دولار</td>
+              <td><span class="badge-custom badge-warning">قيد المراجعة</span></td>
+              <td>16 مايو 2024</td>
+              <td>
+                <div class="d-flex gap-2">
+                  <a href="../property-details.html" class="action-btn action-btn-view" title="عرض التفاصيل"><i class="bi bi-eye"></i></a>
+                  <button class="action-btn action-btn-approve" title="قبول"><i class="bi bi-check-lg"></i></button>
+                  <button class="action-btn action-btn-delete" title="رفض"><i class="bi bi-x-lg"></i></button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=100" alt="Prop" class="property-list-img">
+                  <div>
+                    <div class="fw-bold text-primary">فيلا حديثة</div>
+                    <div class="text-muted small">خانيونس</div>
+                  </div>
+                </div>
+              </td>
+              <td>محمد خليل</td>
+              <td class="fw-bold">400 دولار / شهرياً</td>
+              <td><span class="badge-custom badge-success">معتمد</span></td>
+              <td>15 مايو 2024</td>
+              <td>
+                <div class="d-flex gap-2">
+                  <a href="../property-details.html" class="action-btn action-btn-view" title="عرض التفاصيل"><i class="bi bi-eye"></i></a>
+                  <button class="action-btn action-btn-delete" title="رفض"><i class="bi bi-x-lg"></i></button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=100" alt="Prop" class="property-list-img">
+                  <div>
+                    <div class="fw-bold text-primary">مكتب تجاري</div>
+                    <div class="text-muted small">النصر</div>
+                  </div>
+                </div>
+              </td>
+              <td>سارة علي</td>
+              <td class="fw-bold">800 دولار / شهرياً</td>
+              <td><span class="badge-custom badge-danger">مرفوض</span></td>
+              <td>10 مايو 2024</td>
+              <td>
+                <div class="d-flex gap-2">
+                  <a href="../property-details.html" class="action-btn action-btn-view" title="عرض التفاصيل"><i class="bi bi-eye"></i></a>
+                  <button class="action-btn action-btn-approve" title="قبول"><i class="bi bi-check-lg"></i></button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- PAGINATION -->
+      <div class="pagination-custom justify-content-end mt-4">
+        <button class="page-btn"><i class="bi bi-chevron-right"></i></button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn"><i class="bi bi-chevron-left"></i></button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
